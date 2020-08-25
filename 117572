@@ -1,0 +1,31 @@
+#include <iostream>
+#include<vector>
+#include<algorithm>
+#include<bits/stdc++.h> 
+using namespace std;
+
+int main()
+{
+    int n,in,t;
+    vector<int>st;
+    cin>>t;
+    while(t--)
+    {
+        int arr[1000000]={0},i=0;
+    cin>>n;
+    while(n--)
+    {
+        cin>>in;
+        if(find(st.begin(),st.end(),in)!=st.end()) {arr[i]=st.size();  i++;  
+        	st.erase(st.begin(),find(st.begin(),st.end(),in)+1);
+        }
+        st.push_back(in);
+    }
+     arr[i]=st.size();
+    i++;
+    sort(arr,arr+i,greater<int>());
+    cout<<arr[0]<<endl;
+    st.clear();
+    }
+    return 0;
+}
